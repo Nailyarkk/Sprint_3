@@ -3,27 +3,14 @@ import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from locators import *
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.webdriver import WebDriver
-from helpers import generate_random_login, generate_random_password, generate_random_name
-import time
+from helpers import *
 from locators import *
 from constants import *
 
 
 class TestRegistration:
-    def check_registration(self, driver, random_name):
-        driver.find_element(*SignInMain.SUBMIT_LK).click()
-
-        wait = WebDriverWait(driver, 10)
-        element = wait.until(EC.presence_of_element_located(*SignInMain.CURR_NAME123))
-
-        name = driver.find_element(*SignInMain.CURR_NAME123)
-        value_attribute = name.get_attribute('value')
-
-        assert value_attribute == random_name
-
     def test_registration(self, driver):
         driver.get(reg_site)
 
@@ -39,5 +26,13 @@ class TestRegistration:
         email_field.send_keys(random_login)
         password_field.send_keys(random_password)
 
-        self.check_registration(driver, random_name)
+        driver.find_element(*SignInMain.SUBMIT_LK).click()
+
+        wait = WebDriverWait(driver, 10)
+        element = wait.until(EC.presence_of_element_located(*SignInMain.CURR_NAME123))
+
+        name = driver.find_element(*SignInMain.CURR_NAME123)
+        value_attribute = name.get_attribute('value')
+
+        assert value_attribute == random_name
 
