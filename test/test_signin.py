@@ -1,16 +1,8 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.webdriver import WebDriver
 from locators import SignInMain
 from constants import *
 class TestSignin:
-
-    def wait(self, driver):
-        return WebDriverWait(driver, 10)
 
     @pytest.mark.parametrize("url, submit_selector", [
         ("https://stellarburgers.nomoreparties.site/", SignInMain.SUBMIT_BUTTON),

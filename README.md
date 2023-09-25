@@ -4,9 +4,9 @@
 
  1) test_registration.py - проверка регистрации
  2) test_signin.py - 4 способа авторизации
- 2) test_signout.py - проверка выхода с аккаунта 
- 3) test_trek.py - проверка перехода
- 4) test_constructor.py -проверка конструктора (табы)
+ 3) test_signout.py - проверка выхода с аккаунта 
+ 4) test_trek.py - проверка перехода
+ 5) test_constructor.py -проверка конструктора (табы)
 
 
  Были реализованы также файлы :
