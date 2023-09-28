@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
 from locators import SignInMain
-from constants import *
+from constants import name_site, active_tab_class
 
 class TestConstructor:
     @pytest.mark.parametrize("tab", [
